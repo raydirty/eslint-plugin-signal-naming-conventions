@@ -25,7 +25,7 @@ type Plugin = {
 const plugin: Plugin = {
   meta: {
     name: 'eslint-plugin-signal-naming-conventions',
-    version: '0.1.0',
+    version: '0.1.1',
     namespace: 'signal-naming-conventions',
   },
   configs: {},

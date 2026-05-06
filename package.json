@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-signal-naming-conventions",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "ESLint plugin enforcing configurable Angular signal naming conventions.",
   "type": "commonjs",
   "main": "dist/index.js",
@@ -22,6 +22,8 @@
     "LICENSE"
   ],
   "scripts": {
+    "clean": "node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"",
+    "prebuild": "npm run clean",
     "build": "tsc -p tsconfig.json",
     "typecheck:test": "tsc -p tsconfig.test.json",
     "lint": "eslint .",
@@ -29,7 +31,8 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "test": "vitest run",
-    "prepublish-only": "npm run format:check && npm run lint && npm run build && npm test"
+    "prepack": "npm run build",
+    "prepublishOnly": "npm run format:check && npm run lint && npm run build && npm test"
   },
   "keywords": [
     "eslint",
@@ -41,7 +44,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/raydirty/eslint-plugin-signal-naming-conventions.git"
+    "url": "git+https://github.com/raydirty/eslint-plugin-signal-naming-conventions.git"
   },
   "homepage": "https://github.com/raydirty/eslint-plugin-signal-naming-conventions#readme",
   "bugs": {
