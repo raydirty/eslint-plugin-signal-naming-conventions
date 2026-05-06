@@ -6,16 +6,19 @@ describe('plugin export', () => {
     const { recommended } = plugin.configs;
 
     expect(recommended).toBeDefined();
+    expect(Array.isArray(recommended)).toBe(true);
 
-    if (!recommended) {
-      throw new Error('Expected plugin.configs.recommended to be defined.');
+    if (!recommended || recommended.length === 0) {
+      throw new Error('Expected plugin.configs.recommended to be a non-empty array.');
     }
 
-    expect(recommended).toMatchObject({
+    const [recommendedConfig] = recommended;
+
+    expect(recommendedConfig).toMatchObject({
       rules: {
         'signal-naming-conventions/signal-naming-convention': 'error',
       },
     });
-    expect(recommended.plugins['signal-naming-conventions']).toBe(plugin);
+    expect(recommendedConfig.plugins['signal-naming-conventions']).toBe(plugin);
   });
 });

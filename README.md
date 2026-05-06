@@ -27,8 +27,8 @@ module.exports = defineConfig([
       ecmaVersion: 2022,
       sourceType: 'module',
     },
-    ...signalNamingConventions.configs.recommended,
   },
+  ...signalNamingConventions.configs.recommended,
 ]);
 ```
 

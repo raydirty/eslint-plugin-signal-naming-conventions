@@ -1,5 +1,14 @@
 import signalNamingConvention from './rules/signal-naming-convention';
 
+type RecommendedConfigItem = {
+  plugins: {
+    'signal-naming-conventions': Plugin;
+  };
+  rules: {
+    'signal-naming-conventions/signal-naming-convention': 'error';
+  };
+};
+
 type Plugin = {
   meta: {
     name: string;
@@ -7,14 +16,7 @@ type Plugin = {
     namespace: string;
   };
   configs: {
-    recommended?: {
-      plugins: {
-        'signal-naming-conventions': Plugin;
-      };
-      rules: {
-        'signal-naming-conventions/signal-naming-convention': 'error';
-      };
-    };
+    recommended?: RecommendedConfigItem[];
   };
   rules: {
     'signal-naming-convention': typeof signalNamingConvention;
@@ -25,7 +27,7 @@ type Plugin = {
 const plugin: Plugin = {
   meta: {
     name: 'eslint-plugin-signal-naming-conventions',
-    version: '0.1.1',
+    version: '0.1.2',
     namespace: 'signal-naming-conventions',
   },
   configs: {},
@@ -35,13 +37,15 @@ const plugin: Plugin = {
   processors: {},
 };
 
-plugin.configs.recommended = {
-  plugins: {
-    'signal-naming-conventions': plugin,
+plugin.configs.recommended = [
+  {
+    plugins: {
+      'signal-naming-conventions': plugin,
+    },
+    rules: {
+      'signal-naming-conventions/signal-naming-convention': 'error',
+    },
   },
-  rules: {
-    'signal-naming-conventions/signal-naming-convention': 'error',
-  },
-};
+];
 
 export = plugin;
