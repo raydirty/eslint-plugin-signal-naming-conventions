@@ -1,0 +1,14 @@
+# source & tests
+src/
+tests/
+
+# config files
+eslint.config.js
+tsconfig.json
+tsconfig.test.json
+*.iml
+
+# misc
+.idea/
+.vscode/
+

@@ -19,16 +19,16 @@ const createRule = ESLintUtils.RuleCreator.withoutDocs;
 const ruleMeta: TSESLint.RuleMetaData<MessageIds, unknown, Options> & {
   docs: {
     description: string;
+    url: string;
   };
-  languages: readonly ['js/js'];
 } = {
   type: 'suggestion',
   docs: {
     description:
       'Enforce a configurable prefix for variables and class properties initialized with Angular signal APIs.',
+    url: 'https://github.com/raydirty/eslint-plugin-signal-naming-conventions#rule-signal-naming-convention',
   },
   fixable: 'code',
-  languages: ['js/js'],
   messages: {
     invalidName: 'Signal name "{{name}}" must start with one of the configured prefixes: {{prefixes}}.',
   },

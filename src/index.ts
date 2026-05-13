@@ -1,4 +1,6 @@
 import signalNamingConvention from './rules/signal-naming-convention';
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const { version } = require('../package.json') as { version: string };
 
 type RecommendedConfigItem = {
   plugins: {
@@ -27,7 +29,7 @@ type Plugin = {
 const plugin: Plugin = {
   meta: {
     name: 'eslint-plugin-signal-naming-conventions',
-    version: '0.1.2',
+    version,
     namespace: 'signal-naming-conventions',
   },
   configs: {},
