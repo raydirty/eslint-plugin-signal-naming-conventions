@@ -1,6 +1,5 @@
 import signalNamingConvention from './rules/signal-naming-convention';
-// eslint-disable-next-line @typescript-eslint/no-require-imports
-const { version } = require('../package.json') as { version: string };
+import { version } from '../package.json';
 
 type RecommendedConfigItem = {
   plugins: {
