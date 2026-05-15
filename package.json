@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-signal-naming-conventions",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "ESLint plugin enforcing configurable Angular signal naming conventions.",
   "type": "commonjs",
   "main": "dist/index.js",
