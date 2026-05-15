@@ -54,6 +54,9 @@ ruleTester.run('signal-naming-convention', rule, {
       code: 'const $stream = rxSignal(source$);',
       options: [{ functions: ['rxSignal'] }],
     },
+    {
+      code: 'const store = signalStore({});',
+    },
   ],
   invalid: [
     {
@@ -103,6 +106,12 @@ ruleTester.run('signal-naming-convention', rule, {
       code: 'const value = makeSignal(0);',
       output: 'const $value = makeSignal(0);',
       options: [{ functions: ['makeSignal'] }],
+      errors: [{ messageId: 'invalidName' }],
+    },
+    {
+      code: 'const store = signalStore({});',
+      output: 'const $store = signalStore({});',
+      options: [{ functions: ['signalStore'] }],
       errors: [{ messageId: 'invalidName' }],
     },
   ],

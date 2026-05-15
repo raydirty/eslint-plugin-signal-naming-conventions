@@ -137,12 +137,11 @@ export default createRule<Options, MessageIds>({
         return false;
       }
 
-      if (
-        node.type === AST_NODE_TYPES.CallExpression &&
-        isIdentifierCallee(node.callee) &&
-        (configuredFunctions.has(node.callee.name) || angularSignalLocals.has(node.callee.name))
-      ) {
-        return true;
+      if (node.type === AST_NODE_TYPES.CallExpression) {
+        return (
+          isIdentifierCallee(node.callee) &&
+          (configuredFunctions.has(node.callee.name) || angularSignalLocals.has(node.callee.name))
+        );
       }
 
       return hasSignalLikeType(context, node);
